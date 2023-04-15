@@ -1,0 +1,19 @@
+management:
+  endpoint:
+    refresh:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include:
+        - refresh
+      
+spring:
+  application:
+    name: cloud-config-client
+  config:
+    import: configserver:http://localhost:8888/api/v1
+  profiles:
+    active: dev
+  main:
+    allow-circular-references: true
